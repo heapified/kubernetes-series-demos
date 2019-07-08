@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: standalone-backend
+spec: # PodSpec
+  containers:
+  - image: express-backend
+    imagePullPolicy: Never
+    name: express-backend-container
+    ports:
+    - containerPort: 3000
+      name: http

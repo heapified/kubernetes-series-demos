@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-deployment
+spec: # DeploymentSpec
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template: # PodTemplateSpec
+    metadata:
+      labels:
+        app: backend
+    spec: # PodSpec
+      containers: # Container[]
+      - name: express-backend-container
+        image: express-backend
+        imagePullPolicy: Never
+        ports: # ContainerPort[]
+        - containerPort: 3000
